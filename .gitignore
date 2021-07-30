@@ -1,11 +1,6 @@
-*
+# Include dirs
+/node_modules/
+/dist/
 
-# Exclude dirs
-!src
-
-# Exclude files
-!.gitignore
-!package.json
-!pnpm-lock.yaml
-!tsconfig.json
-!README.md
+# Include files
+# ~nothing

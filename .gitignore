@@ -1,0 +1,11 @@
+*
+
+# Exclude dirs
+!src
+
+# Exclude files
+!.gitignore
+!package.json
+!pnpm-lock.yaml
+!tsconfig.json
+!README.md

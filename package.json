@@ -1,0 +1,36 @@
+{
+    "name": "@prismadev/webmarine-2d-core",
+    "version": "0.0.0",
+    "description": "Core utils for 2D verson of game engine Webmarine",
+    "main": "dist/main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/7y1o/webmarine-2d-core.git"
+    },
+    "keywords": [
+        "game",
+        "engine",
+        "webmarine",
+        "web",
+        "marine",
+        "core",
+        "canvas",
+        "html5",
+        "javascript",
+        "js",
+        "typescript",
+        "ts"
+    ],
+    "author": "7y1o",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/7y1o/webmarine-2d-core/issues"
+    },
+    "homepage": "https://github.com/7y1o/webmarine-2d-core#readme",
+    "devDependencies": {
+        "typescript": "^4.3.5"
+    }
+}

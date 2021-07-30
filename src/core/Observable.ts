@@ -39,7 +39,7 @@ export class Observable {
             return;
 
         for (const obId in this.listeners[event]) {
-            this.listeners[event][obId].callback();
+            this.listeners[event][obId].callback(...args);
 
             if (this.listeners[event][obId].once) {
                 this.listeners[event] = this.listeners[event].slice(obId, 1);

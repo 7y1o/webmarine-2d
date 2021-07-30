@@ -34,7 +34,7 @@ export class Observable {
     }
 
     /** Emit event to observers */
-    public emit(event: string, ...args: any[]) {
+    public emit(event: string, ...args: any[]): void {
         if (!this.listeners[event])
             return;
 

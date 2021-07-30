@@ -52,4 +52,10 @@ export class RenderTarget {
     public set rotate(angle: number) {
         this._rotation += angle;
     }
+
+    /** Render */
+    public render(ctx: CanvasRenderingContext2D): void {
+        ctx.fillStyle = '#ff6900';
+        ctx.fillRect(16, 16, 32, 64);
+    }
 }

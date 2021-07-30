@@ -1,3 +1,4 @@
+import { Scene } from '../renderer/Scene';
 import { RendererObservable } from '../renderer/RendererObservable';
 import type {RendererConfig} from './refs/RendererConfig';
 
@@ -15,6 +16,9 @@ export class Renderer {
 
     /** Event listeners */
     protected readonly obersvable: RendererObservable;
+
+    /** Working scene */
+    protected scene: Scene;
 
     /** Construct renderer and get canvas with canvas context */
     public constructor(config?: RendererConfig) {
@@ -78,5 +82,29 @@ export class Renderer {
     /** Set or disable fps limiter */
     public set fpsLimit(val: number | false) {
         this.fps = val;
+    }
+
+    /** Push scene */
+    public pushScene(scene: Scene): void {
+        this.scene = scene;
+    }
+
+    /** Render loop */
+    public async start(): Promise<void> {
+        if (!this.scene)
+            throw '[WMC2D] Error on renderer start: scene not set';
+        
+        this.scene.check();
+
+        let stack = [Date.now(), 0, 0];
+        const loop = () => {
+            stack[1] = Date.now();
+            stack[2] = stack[1] - stack[0];
+            stack[0] = stack[1];
+            
+            this.obersvable.emit('before_render', this.ctx);
+            this.scene.render(this.ctx);
+            this.obersvable.emit('after_render', this.ctx);
+        };
     }
 }

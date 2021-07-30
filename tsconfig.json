@@ -7,7 +7,7 @@
     "declaration": true,
     "outDir": "dist"
   },
-  "files": [
-    "src/**/*.ts"
+  "include": [
+    "src/**/*"
   ]
 }

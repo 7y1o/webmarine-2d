@@ -1,5 +1,5 @@
 import { Scene } from '../renderer/Scene';
-import { RendererObservable } from '../renderer/RendererObservable';
+import { RendererObservable } from '../renderer/events/RendererObservable';
 import type {RendererConfig} from './refs/RendererConfig';
 
 /** Canvas renderer */
@@ -19,6 +19,9 @@ export class Renderer {
 
     /** Working scene */
     protected scene: Scene;
+
+    /** Is render running */
+    protected _running: boolean;
 
     /** Construct renderer and get canvas with canvas context */
     public constructor(config?: RendererConfig) {
@@ -89,14 +92,31 @@ export class Renderer {
         this.scene = scene;
     }
 
+    /** Set running state */
+    public set running(val: boolean) {
+        this._running = val;
+    }
+
+    /** Get running state */
+    public get runnnig() {
+        return this._running;
+    }
+
+    /** Clear all data from renderer */
+    public clear(): void {
+        this.scene = null;
+        this.obersvable.clear();
+    }
+
     /** Render loop */
     public async start(): Promise<void> {
         if (!this.scene)
             throw '[WMC2D] Error on renderer start: scene not set';
         
         this.scene.check();
-
         let stack = [Date.now(), 0, 0];
+
+        this._running = true;
         const loop = () => {
             stack[1] = Date.now();
             stack[2] = stack[1] - stack[0];
@@ -105,6 +125,9 @@ export class Renderer {
             this.obersvable.emit('before_render', this.ctx);
             this.scene.render(this.ctx);
             this.obersvable.emit('after_render', this.ctx);
+
+            if (this._running)
+                requestAnimationFrame(() => loop());
         };
     }
 }

@@ -9,4 +9,4 @@ export { Observable } from './core/Observable';
 export { Camera } from './renderer/Camera';
 export { Filter } from './renderer/Filter';
 export { RenderTarget } from './renderer/RenderTarget';
-export { RendererObservable } from './renderer/RendererObservable';
+export { RendererObservable } from './renderer/events/RendererObservable';

@@ -2,10 +2,12 @@ lockfileVersion: 5.3
 
 specifiers:
   cypress: ^8.1.0
+  pnpm: 6.11.5
   typescript: ^4.3.5
 
 devDependencies:
   cypress: 8.1.0
+  pnpm: 6.11.5
   typescript: 4.3.5
 
 packages:
@@ -817,6 +819,12 @@ packages:
   /pify/2.3.0:
     resolution: {integrity: sha1-7RQaasBDqEnqWISY59yosVMw6Qw=}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /pnpm/6.11.5:
+    resolution: {integrity: sha512-TXMSRyncP88F4GTdKFIIi3kdXSYf+v3uvIKLfNjPTt2YjsrbKmYNCR3VsGjYwlMVSnH2UEo2/sM2VNSefH9Isw==}
+    engines: {node: '>=12.17'}
+    hasBin: true
     dev: true
 
   /pretty-bytes/5.6.0:

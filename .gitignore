@@ -1,6 +1,8 @@
 # Include dirs
 /node_modules/
 /dist/
+/cypress/videos
+/cypress/screenshots
 
 # Include files
 # ~nothing

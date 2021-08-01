@@ -11,4 +11,4 @@ export class Vector1 extends Vector {
         super();
         this.value = [x, y];
     }
-};
+}

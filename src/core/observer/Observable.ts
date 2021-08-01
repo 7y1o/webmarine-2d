@@ -37,6 +37,12 @@ export class Observable {
             throw new ExistsError();
 
         this.listeners[event].push({ callback, once: true });
+
+        console.log('Before obj is', this.listeners);
+        
+        console.log('Registered new once');
+        console.log('Now object is', this.listeners);
+        
         return this.listeners[event].length - 1;
     }
 
@@ -45,7 +51,8 @@ export class Observable {
         if (!this.listeners[event][id])
             throw new NotFoundError();
 
-        this.listeners[event].slice(id, 1);
+        this.listeners[event].filter((v,i) => i !== id);
+        console.log('Cleared. Now array is:' + JSON.stringify(this.listeners));
     }
 
     /** Emit event */
@@ -56,8 +63,12 @@ export class Observable {
         for (let i = 0; i < this.listeners[event].length; i++) {
             this.listeners[event][i].callback();
 
-            if (this.listeners[event][i].once)
-                this.listeners[event].slice(i, 1);
+            console.log('Checking once');
+            
+            if (this.listeners[event][i].once) {
+                console.log('Once handled');
+                this.off(event, i);
+            }
         }
     }
 
@@ -65,4 +76,4 @@ export class Observable {
     public clear(event: typeof this.events | null): void {
         this.listeners[event] = [];
     }
-};
+}

@@ -41,6 +41,6 @@ export abstract class Vector {
 
     /** Clear value of the vector to zero */
     public clear(): void {
-        this.value = new Array(this.value.length - 1).map(i => 1);
+        this.value = new Array(this.value.length - 1).map(() => 1);
     }
-};
+}

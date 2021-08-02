@@ -7,28 +7,28 @@ export abstract class Vector {
     /** Add to vector */
     public add(vec: Vector): void {
         for (const i in vec.value) {
-            this.value[i] = vec.value[i];
+            this.value[i] += vec.value[i];
         }
     }
 
     /** Subtract from vector */
     public sub(vec: Vector): void {
         for (const i in vec.value) {
-            this.value[i] = vec.value[i];
+            this.value[i] -= vec.value[i];
         }
     }
 
     /** Multiply vector */
     public multiply(vec: Vector): void {
         for (const i in vec.value) {
-            this.value[i] = vec.value[i];
+            this.value[i] *= vec.value[i];
         }
     }
 
     /** Divide vector */
     public divide(vec: Vector): void {
         for (const i in vec.value) {
-            this.value[i] = vec.value[i];
+            this.value[i] /= vec.value[i];
         }
     }
 
@@ -41,6 +41,8 @@ export abstract class Vector {
 
     /** Clear value of the vector to zero */
     public clear(): void {
-        this.value = new Array(this.value.length - 1).map(() => 1);
+        for (const i in this.value) {
+            this.value[i] = 0;
+        }
     }
 }

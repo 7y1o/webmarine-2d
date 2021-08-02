@@ -1,15 +1,14 @@
 import { ExistsError } from "../errors/ExistsError";
 import { NotFoundError } from "../errors/NotFoundError";
-import { Observer } from "./Observer";
 
 /** Observable class */
 export class Observable {
 
     /** Array of listeners */
-    protected listeners: { event?: Observer[] };
+    protected listeners: any;
 
     /** Array of events */
-    protected readonly events: 'event';
+    protected readonly events: string;
 
     /** Make observable */
     public constructor() {
@@ -65,7 +64,10 @@ export class Observable {
     }
 
     /** Clear observers of event */
-    public clear(event: typeof this.events | null): void {
-        this.listeners[event] = [];
+    public clear(event?: typeof this.events): void {
+        if (event)
+            this.listeners[event] = [];
+        else
+            this.listeners = {};
     }
 }

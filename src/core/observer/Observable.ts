@@ -1,5 +1,6 @@
 import { ExistsError } from "../errors/ExistsError";
 import { NotFoundError } from "../errors/NotFoundError";
+import { Observer } from './Observer';
 
 /** Observable class */
 export class Observable {
@@ -20,7 +21,7 @@ export class Observable {
         if (!this.listeners[event])
             this.listeners[event] = [];
 
-        if (this.listeners[event].find(i => i.callback === callback))
+        if (this.listeners[event].find((i: Observer) => i.callback === callback))
             throw new ExistsError();
 
         this.listeners[event].push({ callback, once: false });
@@ -32,7 +33,7 @@ export class Observable {
         if (!this.listeners[event])
             this.listeners[event] = [];
 
-        if (this.listeners[event].find(i => i.callback === callback))
+        if (this.listeners[event].find((i: Observer) => i.callback === callback))
             throw new ExistsError();
 
         this.listeners[event].push({ callback, once: true });        
@@ -44,7 +45,7 @@ export class Observable {
         if (!this.listeners[event][id])
             throw new NotFoundError();
 
-        this.listeners[event] = this.listeners[event].filter((_,i) => i !== id);
+        this.listeners[event] = this.listeners[event].filter((_: any,i: number) => i !== id);
     }
 
     /** Emit event */

@@ -8,7 +8,7 @@ export abstract class RendererObservable extends Observable {
     protected listeners: { event?: Observer[], before?: Observer[], after?: Observer[] };
 
     /** Event types */
-    private events: 'before' | 'after';
+    protected events: 'before' | 'after';
 
     public abstract on(event: typeof this.events, callback: () => void): number;
     public abstract once(event: typeof this.events, callback: () => void): number;

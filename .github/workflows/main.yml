@@ -10,5 +10,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        with:
-          tests: npm run test
+        env:
+          CYPRESS_RECORD_KEY: 03b4e6e1-e8e3-4323-ad0d-5c7ebd7dd7c0

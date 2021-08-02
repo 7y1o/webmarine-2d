@@ -4,11 +4,11 @@ import { Vector } from "./Vector";
 export class Vector1 extends Vector {
     
     /** Value of the vector */
-    public value: [number, number];
+    public value: [number];
 
     /** Make vector */
-    public constructor(x: number, y: number) {
+    public constructor(x: number) {
         super();
-        this.value = [x, y];
+        this.value = [x];
     }
 }

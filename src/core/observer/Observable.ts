@@ -6,7 +6,7 @@ import { Observer } from './Observer';
 export class Observable {
 
     /** Array of listeners */
-    protected listeners: any;
+    protected listeners: { event?: Observer[] } | any; // HACK
 
     /** Array of events */
     protected readonly events: string;
@@ -45,7 +45,7 @@ export class Observable {
         if (!this.listeners[event][id])
             throw new NotFoundError();
 
-        this.listeners[event] = this.listeners[event].filter((_: any,i: number) => i !== id);
+        this.listeners[event] = this.listeners[event].filter((_: never, i: number) => i !== id);
     }
 
     /** Emit event */

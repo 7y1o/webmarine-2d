@@ -3,6 +3,7 @@
 /dist/
 /cypress/videos
 /cypress/screenshots
+/.idea/
 
 # Include files
 # ~nothing

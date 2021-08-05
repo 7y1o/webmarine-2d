@@ -28,6 +28,7 @@ export class RenderTarget {
             for (let i = 0; i < 32; i++) {
                 result += dict[Math.floor(Math.random() * dict.length)];
             }
+            id = result;
         }
 
         this._id = id;

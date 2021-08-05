@@ -55,11 +55,9 @@ export class Observable {
 
         for (let i = 0; i < this.listeners[event].length; i++) {
             this.listeners[event][i].callback();
-            
+
             if (this.listeners[event][i].once) {
-                console.log('Handled', this.listeners[event]);
                 this.off(event, i);
-                console.log('Cleared', this.listeners[event], 'Width id', i);
             }
         }
     }

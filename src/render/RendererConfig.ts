@@ -1,8 +1,8 @@
 /** Renderer config reference */
 export type RendererConfig = {
     
-    /** Should the canvas be stretched to fit the object */
-    adjust?: boolean,
+    /** Should the canvas fill entire window */
+    fullscreen?: boolean,
 
     /** Custom canvas size */
     size?: {

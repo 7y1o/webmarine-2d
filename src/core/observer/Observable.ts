@@ -6,7 +6,7 @@ import { Observer } from './Observer';
 export class Observable {
 
     /** Array of listeners */
-    protected listeners: { event?: Observer[] } | any; // HACK
+    protected listeners: any;
 
     /** Array of events */
     protected readonly events: string;
@@ -17,7 +17,7 @@ export class Observable {
     }
 
     /** Register observer */
-    public on(event: typeof this.events, callback: () => void): number {
+    public on(event: string, callback: () => void): number {
         if (!this.listeners[event])
             this.listeners[event] = [];
 
@@ -29,7 +29,7 @@ export class Observable {
     }
 
     /** Register observer for one-time call */
-    public once(event: typeof this.events, callback: () => void): number {
+    public once(event: string, callback: () => void): number {
         if (!this.listeners[event])
             this.listeners[event] = [];
 
@@ -41,7 +41,7 @@ export class Observable {
     }
 
     /** Unregister observer */
-    public off(event: typeof this.events, id: number): void {
+    public off(event: string, id: number): void {
         if (!this.listeners[event][id])
             throw new NotFoundError();
 
@@ -49,7 +49,7 @@ export class Observable {
     }
 
     /** Emit event */
-    public emit(event: typeof this.events): void {
+    public emit(event: string): void {
         if (!this.listeners[event] || this.listeners[event].length < 1)
             return;
 
@@ -65,7 +65,7 @@ export class Observable {
     }
 
     /** Clear observers of event */
-    public clear(event?: typeof this.events): void {
+    public clear(event?: string): void {
         if (event)
             this.listeners[event] = [];
         else

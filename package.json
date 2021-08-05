@@ -1,8 +1,9 @@
 {
-    "name": "@prismadev/webmarine-2d",
+    "name": "@prismadev/webmarine2d",
     "version": "0.0.1-et",
     "description": "Core utils for 2D verson of game engine Webmarine",
     "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "files": [
         "dist"
     ],

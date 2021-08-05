@@ -1,12 +1,11 @@
 {
     "name": "@prismadev/webmarine-2d-core",
-    "version": "0.0.1-it",
+    "version": "0.0.1-et",
     "description": "Core utils for 2D verson of game engine Webmarine",
     "main": "dist/index.js",
     "files": [
         "dist"
     ],
-    "private": true,
     "scripts": {
         "build": "tsc",
         "test": "cypress run --record --key 03b4e6e1-e8e3-4323-ad0d-5c7ebd7dd7c0"
@@ -37,7 +36,6 @@
     "homepage": "https://github.com/7y1o/webmarine-2d-core#readme",
     "devDependencies": {
         "cypress": "^8.1.0",
-        "typescript": "^4.3.5",
-        "pnpm": "6.11.5"
+        "typescript": "^4.3.5"
     }
 }

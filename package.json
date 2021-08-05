@@ -1,6 +1,6 @@
 {
     "name": "@prismadev/webmarine-2d-core",
-    "version": "0.0.2-it",
+    "version": "0.0.1-it",
     "description": "Core utils for 2D verson of game engine Webmarine",
     "main": "dist/index.js",
     "files": [
